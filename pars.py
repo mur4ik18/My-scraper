@@ -10,10 +10,10 @@ import read
 folder = read.folders
 site_link = read.site_link
 shell = read.Shell
-Title = '.goods-tile__heading > .goods-tile__title'
-unnecessary_title = "Мобильный телефон "
-price = 1
-max_page = 1
+Title = read.Title
+unnecessary_title = read.unnecessary_title
+price = read.Price
+max_page = read.MaxPages
 pages = []
 
 # Folder checker 
