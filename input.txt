@@ -1,0 +1,2 @@
+folder: trister
+site link: rozetka
