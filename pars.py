@@ -3,13 +3,13 @@ from bs4 import BeautifulSoup as BS
 import os
 import shutil
 import read
-from read import tx
+
 
 
 # var's
-folder = 'pepsy'
-site_link = 'https://rozetka.com.ua/mobile-phones/c80003/page='
-shell = '.goods-tile'
+folder = read.folders
+site_link = read.site_link
+shell = read.Shell
 Title = '.goods-tile__heading > .goods-tile__title'
 unnecessary_title = "Мобильный телефон "
 price = 1
@@ -18,14 +18,14 @@ pages = []
 
 # Folder checker 
 
-if os.path.exists(folder):
+if os.path.exists(read.folders):
     print("I'm find and delate")
 #    os.rmdir('pepsy')
-    shutil.rmtree(folder)
+    shutil.rmtree(read.folders)
 else:
     print("I'm not find")
 
-os.mkdir('pepsy/')
+os.mkdir(read.folders + '/')
 f = open('pepsy/text.txt', "w")
 
 
@@ -48,11 +48,7 @@ for r in pages:
     writer(str(shell), str(Title),unnecessary_title)
 
 
-        
 
-tx('text')
-
-
-
+print()
 
 f.close()

@@ -1,2 +1,7 @@
-folder: trister
-site link: rozetka
+Folder : pepsy
+Site link : https://rozetka.com.ua/mobile-phones/c80003/page=
+Shell : .goods-tile
+Title : .goods-tile__heading > .goods-tile__title
+Price :
+Unnecessare title : Мобильный телефон
+Max pages : 1
