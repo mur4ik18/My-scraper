@@ -4,6 +4,7 @@ fil = open('input.txt')
 #foldn 
 #linkn 
 #shelln 
+
 #Titlen 
 #unnen 
 #max_page 
@@ -25,6 +26,6 @@ site_link = dd[1].replace('Site link : ', '')
 Shell = dd[2].replace('Shell : ', '')
 Title = dd[3].replace('Title : ', '')
 Price = price()
-unnecessary_title = dd[5].replace('Unnecessare title : ', '')
-MaxPages = dd[6].replace('Max pages : ', '')
-print(Price)
+MaxPages = int(dd[5].replace('Max pages : ', ''))
+Stars = dd[-1].replace('Stars : ', '')
+print(Stars)

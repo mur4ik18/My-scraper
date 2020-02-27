@@ -4,51 +4,68 @@ import os
 import shutil
 import read
 
+from openpyxl import Workbook
 
 
-# var's
+workbook = Workbook()
+sheet = workbook.active
+# тут мы передаем из файл read.py все переменные которые мы взяли из документа
 folder = read.folders
 site_link = read.site_link
 shell = read.Shell
 Title = read.Title
-unnecessary_title = read.unnecessary_title
 price = read.Price
 max_page = read.MaxPages
 pages = []
+stars = read.Stars
 
-# Folder checker 
-
+# Проверяем наличие папки
 if os.path.exists(read.folders):
+    # Если нашли папку то выводим текст об этом в консоль
     print("I'm find and delate")
-#    os.rmdir('pepsy')
+    # Удалаяем папку и все что в ней есть
     shutil.rmtree(read.folders)
 else:
+    # Если не нашли папку то пишем что ее нет...
     print("I'm not find")
+# создаем папку и файл в этой папке
+os.mkdir(folder + '/')
+# Создаем и открываем файл в который мы записываем
+f = open(folder+'/text.txt', "w")
 
-os.mkdir(read.folders + '/')
-f = open('pepsy/text.txt', "w")
-
-
+# цикл для проверки количества
 for x in range(1, max_page +1):
-    pages.append( requests.get(site_link +str(x)) ) 
-
+    # каждую страницу которую мы получили записываем в pages лист
+    pages.append( requests.get(site_link +str(x)) )
+    
 
 
 # this function write our date
-def writer(a,b,t):
+def writer(a,b,c):
+    # цикл который переберает каждый элемент
+    
     for el in html.select(a):
+        x +=1
+        # вытаскываем Название
         title = el.select(b)
-        f.write(title[0].text.replace(t, ''))
+        # Записываем в файл
+        price = el.select(c)
+        f.write(title[0].text)
+        f.write("           ")
+        f.write(price[0].text)
         f.write("\n")
-        
-
+        # записываем в Excel
+        sheet['A'+str(x)] = x
+        sheet['B'+str(x)] = title[0].text
+        sheet['C'+str(x)] = price[0].text
+        #
 
 for r in pages:
+    x = 0
+    # получем весь контент
     html = BS(r.content, 'html.parser')
-    writer(str(shell), str(Title),unnecessary_title)
+    # запускаем нашу функцию записи
+    writer(str(shell), str(Title), price)
 
-
-
-print()
-
+workbook.save(filename= folder+"/input.xlsx")
 f.close()

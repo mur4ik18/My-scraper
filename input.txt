@@ -1,7 +1,7 @@
-Folder : pepsy
-Site link : https://rozetka.com.ua/mobile-phones/c80003/page=
+Folder : notebooks
+Site link : https://rozetka.com.ua/notebooks/c80004/page=
 Shell : .goods-tile
 Title : .goods-tile__heading > .goods-tile__title
-Price : 
-Unnecessare title : Мобильный телефон
-Max pages : 1
+Price : .goods-tile__price-value
+Max pages : 36
+Stars : .goods-tile__rating > stop
