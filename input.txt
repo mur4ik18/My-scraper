@@ -4,4 +4,3 @@ Shell : .goods-tile
 Title : .goods-tile__heading > .goods-tile__title
 Price : .goods-tile__price-value
 Max pages : 36
-Stars : .goods-tile__rating > stop

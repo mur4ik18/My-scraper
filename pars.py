@@ -43,7 +43,7 @@ for x in range(1, max_page +1):
 # this function write our date
 def writer(a,b,c):
     # цикл который переберает каждый элемент
-    
+    x = 0
     for el in html.select(a):
         x +=1
         # вытаскываем Название
